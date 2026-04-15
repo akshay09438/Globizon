@@ -18,8 +18,18 @@ const PROBLEMS = [
 
 export default function Problem() {
   return (
-    <section className="bg-[#0d0d0d] px-6 py-24">
-      <div className="max-w-6xl mx-auto">
+    <section
+      className="relative bg-[#0d0d0d] px-6 py-24"
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=60')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-[#0d0d0d]/90" />
+      <div className="relative max-w-6xl mx-auto">
         <span className="inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-[#00e5a0] bg-[#00e5a0]/10 px-2.5 py-1 mb-5">
           The Problem
         </span>
