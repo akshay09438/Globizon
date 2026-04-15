@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Globizon — Site Wireframe</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #111; color: #fff; font-family: 'Inter', sans-serif; }
+
+  .section-label {
+    display: inline-block;
+    background: rgba(0,229,160,0.15);
+    color: #00e5a0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 16px;
+  }
+
+  /* NAV */
+  .nav {
+    background: rgba(0,0,0,0.9);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo { font-size: 20px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: #fff; }
+  .nav-logo span { color: #00e5a0; }
+  .nav-cta {
+    background: #00e5a0;
+    color: #000;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* HERO */
+  .hero {
+    background: #0d0d0d;
+    padding: 100px 48px 80px;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 900px;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #00e5a0;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .hero h1 em { color: #00e5a0; font-style: normal; }
+  .hero p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 40px;
+  }
+  .hero-ctas { display: flex; gap: 16px; align-items: center; }
+  .btn-primary {
+    background: #00e5a0;
+    color: #000;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-secondary {
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 2px;
+  }
+  .urgency {
+    margin-top: 24px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 1px;
+  }
+  .urgency span { color: #ff6b6b; font-weight: 700; }
+
+  /* STATS BAR */
+  .stats {
+    background: #161616;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 32px 48px;
+    display: flex;
+    gap: 64px;
+  }
+  .stat-item { }
+  .stat-num { font-size: 36px; font-weight: 900; color: #fff; }
+  .stat-num span { color: #00e5a0; }
+  .stat-label { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+
+  /* PROBLEM */
+  .problem {
+    background: #0d0d0d;
+    padding: 100px 48px;
+    max-width: 1100px;
+  }
+  .problem h2 { font-size: 48px; font-weight: 900; line-height: 1.1; margin-bottom: 24px; }
+  .problem h2 em { color: #00e5a0; font-style: normal; }
+  .problem p { font-size: 17px; color: rgba(255,255,255,0.55); line-height: 1.8; max-width: 620px; margin-bottom: 48px; }
+  .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .problem-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 28px;
+  }
+  .problem-card .icon { font-size: 28px; margin-bottom: 16px; }
+  .problem-card h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .problem-card p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+  /* HOW IT WORKS */
+  .process {
+    background: #111;
+    padding: 100px 48px;
+    max-width: 1100px;
+  }
+  .process h2 { font-size: 48px; font-weight: 900; line-height: 1.1; margin-bottom: 60px; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .step { position: relative; }
+  .step-num { font-size: 64px; font-weight: 900; color: rgba(0,229,160,0.12); line-height: 1; margin-bottom: 16px; }
+  .step h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .step p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+  /* PACKAGES */
+  .packages {
+    background: #0d0d0d;
+    padding: 100px 48px;
+    max-width: 1100px;
+  }
+  .packages h2 { font-size: 48px; font-weight: 900; margin-bottom: 12px; }
+  .packages .sub { font-size: 16px; color: rgba(255,255,255,0.45); margin-bottom: 60px; }
+  .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .pkg {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 36px 28px;
+    position: relative;
+  }
+  .pkg.featured {
+    background: rgba(0,229,160,0.06);
+    border-color: rgba(0,229,160,0.3);
+  }
+  .pkg-badge {
+    position: absolute;
+    top: -12px;
+    left: 28px;
+    background: #00e5a0;
+    color: #000;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+  }
+  .pkg-name { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+  .pkg h3 { font-size: 28px; font-weight: 900; margin-bottom: 8px; }
+  .pkg .pkg-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .pkg-features { list-style: none; margin-bottom: 32px; }
+  .pkg-features li { font-size: 13px; color: rgba(255,255,255,0.6); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; gap: 10px; }
+  .pkg-features li::before { content: "→"; color: #00e5a0; flex-shrink: 0; }
+  .pkg-cta {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .pkg.featured .pkg-cta {
+    background: #00e5a0;
+    border-color: #00e5a0;
+    color: #000;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    background: #111;
+    padding: 100px 48px;
+    max-width: 1100px;
+  }
+  .testimonials h2 { font-size: 48px; font-weight: 900; margin-bottom: 60px; }
+  .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .testi {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 32px;
+  }
+  .testi-quote { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+  .testi-author { font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 1px; }
+  .testi-meta { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 3px; }
+
+  /* FAQ */
+  .faq {
+    background: #0d0d0d;
+    padding: 100px 48px;
+    max-width: 760px;
+  }
+  .faq h2 { font-size: 48px; font-weight: 900; margin-bottom: 48px; }
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); padding: 24px 0; }
+  .faq-q { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .faq-a { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.8; }
+
+  /* BOOKING CTA */
+  .booking {
+    background: #0d0d0d;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 120px 48px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .booking h2 { font-size: 56px; font-weight: 900; line-height: 1.1; margin-bottom: 20px; max-width: 720px; }
+  .booking h2 em { color: #00e5a0; font-style: normal; }
+  .booking p { font-size: 17px; color: rgba(255,255,255,0.45); margin-bottom: 40px; max-width: 500px; line-height: 1.7; }
+  .booking-form {
+    display: flex;
+    gap: 12px;
+    max-width: 520px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .booking-form input {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #fff;
+    padding: 14px 18px;
+    font-size: 14px;
+    outline: none;
+  }
+  .booking-form button {
+    background: #00e5a0;
+    color: #000;
+    border: none;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .booking-note { font-size: 12px; color: rgba(255,255,255,0.25); letter-spacing: 1px; }
+
+  /* FOOTER */
+  .footer {
+    background: #080808;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo { font-size: 16px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
+  .footer-logo span { color: #00e5a0; }
+  .footer p { font-size: 12px; color: rgba(255,255,255,0.25); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">GLOBI<span>ZON</span></div>
+  <button class="nav-cta">Book Free Call</button>
+</nav>
+
+<!-- HERO -->
+<section style="background:#0d0d0d; padding: 100px 48px 80px;">
+  <div class="hero" style="padding:0;">
+    <div class="hero-eyebrow">India → Canada Immigration Branding</div>
+    <h1 class="hero" style="padding:0; background:transparent;">
+      Your Social Media Is<br>Your <em>Visa Application.</em>
+    </h1>
+    <p style="font-size:18px; color:rgba(255,255,255,0.55); line-height:1.7; max-width:580px; margin-bottom:40px;">
+      Immigration officers look you up online. We make sure what they find builds your case — not breaks it. Globizon manages your personal and business social presence so your PR file is bulletproof.
+    </p>
+    <div class="hero-ctas">
+      <button class="btn-primary">Book Your Free Strategy Call</button>
+      <span class="btn-secondary">See How It Works</span>
+    </div>
+    <p class="urgency">⚡ <span>3 spots left</span> for onboarding this month</p>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats">
+  <div class="stat-item">
+    <div class="stat-num">80<span>+</span></div>
+    <div class="stat-label">Clients Onboarded</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">94<span>%</span></div>
+    <div class="stat-label">PR Approval Rate</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">3</div>
+    <div class="stat-label">Platforms Managed</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">12<span>mo</span></div>
+    <div class="stat-label">Avg. Brand Build Time</div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section style="background:#0d0d0d; padding:100px 48px;">
+  <div class="problem" style="padding:0; max-width:1100px;">
+    <div class="section-label">The Problem</div>
+    <h2>Immigration Officers <em>Google You.</em><br>What Do They Find?</h2>
+    <p>Canada's PR programs require you to prove your business is real, your leadership is credible, and your presence is established. A blank Instagram and a LinkedIn with 12 connections doesn't cut it anymore.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="icon">🔍</div>
+        <h4>Your Online Presence Is Evidence</h4>
+        <p>Visa officers and immigration consultants verify your business credibility through your digital footprint. A weak online presence raises red flags.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">📄</div>
+        <h4>Documentation Needs Proof</h4>
+        <p>Your PR file needs to show active business operations. A consistent posting history across platforms serves as timestamped, verifiable evidence.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">🏆</div>
+        <h4>Competition Is Fierce</h4>
+        <p>Thousands of Indian entrepreneurs are applying. The ones with a strong personal brand and active business profile stand out — and get approved faster.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="background:#111; padding:100px 48px;">
+  <div class="process" style="padding:0; max-width:1100px;">
+    <div class="section-label">How It Works</div>
+    <h2>We Handle Everything.<br>You Focus on Your Move.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Brand Strategy Session</h4>
+        <p>We map out your personal narrative, business story, and the exact angles that resonate with Canadian immigration standards.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Profile Setup & Optimization</h4>
+        <p>LinkedIn, Instagram, and more — fully built out with professional copy, visuals, and keyword-optimised bios.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Ongoing Content & Management</h4>
+        <p>Monthly content calendars, post creation, publishing, and community management — all done for you.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h4>Monthly PR-Ready Reports</h4>
+        <p>We generate activity reports you can submit directly as supporting documentation in your PR application file.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section style="background:#0d0d0d; padding:100px 48px;">
+  <div class="packages" style="padding:0; max-width:1100px;">
+    <div class="section-label">Packages</div>
+    <h2>Pick Your Package.</h2>
+    <p class="sub">All packages include a free onboarding strategy call and monthly PR documentation reports.</p>
+    <div class="pkg-grid">
+
+      <div class="pkg">
+        <div class="pkg-name">Basic</div>
+        <h3>Personal Brand</h3>
+        <p class="pkg-desc">For the individual applicant who needs to establish a credible personal presence online before applying.</p>
+        <ul class="pkg-features">
+          <li>LinkedIn profile build & management</li>
+          <li>Instagram setup & management</li>
+          <li>8 posts/month (personal)</li>
+          <li>Monthly PR activity report</li>
+          <li>Bi-weekly check-in call</li>
+        </ul>
+        <button class="pkg-cta">Book a Call</button>
+      </div>
+
+      <div class="pkg featured">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-name">Standard</div>
+        <h3>Personal + Business</h3>
+        <p class="pkg-desc">For business owners who need both their personal profile and business pages to reflect well on their application.</p>
+        <ul class="pkg-features">
+          <li>Everything in Basic</li>
+          <li>Business LinkedIn + Instagram page</li>
+          <li>16 posts/month (personal + business)</li>
+          <li>Business profile optimisation</li>
+          <li>Monthly PR activity report (both profiles)</li>
+          <li>Weekly strategy call</li>
+        </ul>
+        <button class="pkg-cta">Book a Call</button>
+      </div>
+
+      <div class="pkg">
+        <div class="pkg-name">Premium</div>
+        <h3>Full PR Suite</h3>
+        <p class="pkg-desc">Full-service brand management with documentation support. For applicants who want nothing left to chance.</p>
+        <ul class="pkg-features">
+          <li>Everything in Standard</li>
+          <li>Facebook business page management</li>
+          <li>24 posts/month across all platforms</li>
+          <li>Press release & media coverage support</li>
+          <li>PR documentation kit (letters, reports)</li>
+          <li>Priority support + dedicated manager</li>
+        </ul>
+        <button class="pkg-cta">Book a Call</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:#111; padding:100px 48px;">
+  <div class="testimonials" style="padding:0; max-width:1100px;">
+    <div class="section-label">Results</div>
+    <h2>Real Clients. Real Approvals.</h2>
+    <div class="testi-grid">
+      <div class="testi">
+        <p class="testi-quote">"Our immigration consultant told us our LinkedIn and Instagram were among the strongest she'd seen in a PR file. Globizon built that from scratch in 6 months."</p>
+        <div class="testi-author">Rajesh M.</div>
+        <div class="testi-meta">E-commerce business owner · PR approved, Ontario</div>
+      </div>
+      <div class="testi">
+        <p class="testi-quote">"I had zero social media presence. Globizon built my personal brand, managed my business pages, and gave me reports I could directly attach to my application."</p>
+        <div class="testi-author">Priya S.</div>
+        <div class="testi-meta">IT consulting firm founder · PR approved, British Columbia</div>
+      </div>
+      <div class="testi">
+        <p class="testi-quote">"The monthly reports Globizon generates were a game-changer. My consultant said it gave the application real credibility. I'm now a permanent resident."</p>
+        <div class="testi-author">Amit D.</div>
+        <div class="testi-meta">Restaurant chain owner · PR approved, Alberta</div>
+      </div>
+      <div class="testi">
+        <p class="testi-quote">"Worth every rupee. They handled everything — posts, replies, strategy. I focused on my business while they built my brand. Approved in 11 months."</p>
+        <div class="testi-author">Neha K.</div>
+        <div class="testi-meta">Healthcare startup founder · PR approved, Manitoba</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:#0d0d0d; padding:100px 48px;">
+  <div class="faq" style="padding:0;">
+    <div class="section-label">FAQ</div>
+    <h2>Common Questions.</h2>
+    <div class="faq-item">
+      <div class="faq-q">Does social media actually affect my PR application?</div>
+      <div class="faq-a">Yes. Canadian immigration officers and consultants now routinely check applicants' online presence to verify business activity and personal credibility. An active, professional presence strengthens your file significantly.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Which Canadian immigration programs does this help with?</div>
+      <div class="faq-a">Globizon's packages are designed for the Start-Up Visa Program, Provincial Nominee Programs (PNP) for entrepreneurs, and the Self-Employed Persons Program — all of which evaluate business credibility.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long does it take to build a credible presence?</div>
+      <div class="faq-a">Most clients see a substantial presence established within 3–6 months. For PR documentation purposes, we recommend starting at least 6–12 months before your application submission.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I need to create the content myself?</div>
+      <div class="faq-a">No. We handle everything — strategy, writing, design, and publishing. We just need a monthly 30-minute call with you to align on topics and review your activity.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What makes Globizon different from a regular social media agency?</div>
+      <div class="faq-a">We specialise exclusively in immigration-focused personal and business branding. Our content strategy, reporting formats, and documentation kits are built specifically to meet PR application requirements — not just get likes.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING CTA -->
+<section class="booking">
+  <div class="section-label">Get Started</div>
+  <h2>Ready to Build the Brand<br>That Gets You to <em>Canada?</em></h2>
+  <p>Book a free 30-minute strategy call. We'll review your current online presence, identify the gaps, and tell you exactly what it'll take to strengthen your PR file.</p>
+  <div class="booking-form">
+    <input type="text" placeholder="Your name" />
+    <input type="email" placeholder="Email address" style="flex:1.2;" />
+    <button>Book Free Call</button>
+  </div>
+  <p class="booking-note">No commitment. No fees. Just clarity on your next step.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">GLOBI<span>ZON</span></div>
+  <p>© 2025 Globizon. Immigration branding specialists.</p>
+</footer>
+
+</body>
+</html>
