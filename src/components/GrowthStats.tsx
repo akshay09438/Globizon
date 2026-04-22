@@ -167,7 +167,7 @@ function StatCard({ c, i }: { c: (typeof CLIENTS)[0]; i: number }) {
 
 export default function GrowthStats() {
   return (
-    <section style={{ backgroundColor: "#ffffff", padding: "96px 32px" }}>
+    <section style={{ backgroundColor: "#ffffff", padding: "96px 32px", borderTop: "1px solid rgba(26,26,26,0.05)" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}

@@ -6,11 +6,12 @@ const TRUST_LOGOS = [
   "IRCC", "Start-Up Visa", "Express Entry", "PNP", "LMIA", "SUV Program", "RNIP", "BCPNP",
 ];
 
-const DOT_POSITIONS = Array.from({ length: 16 }, (_, i) => ({
+// Expanded 8×6 dot grid covering full hero area
+const DOT_POSITIONS = Array.from({ length: 48 }, (_, i) => ({
   id: i,
-  x: (i % 4) * 33 + 17,
-  y: Math.floor(i / 4) * 33 + 17,
-  delay: i * 0.12,
+  x: (i % 8) * 13 + 6,
+  y: Math.floor(i / 8) * 18 + 8,
+  delay: i * 0.06,
 }));
 
 export default function Hero() {
@@ -32,46 +33,77 @@ export default function Hero() {
         justifyContent: "center",
         textAlign: "center",
         overflow: "hidden",
-        background: "#ffffff",
+        background: `
+          radial-gradient(ellipse 90% 70% at 50% 45%,
+            rgba(255,38,0,0.07) 0%,
+            rgba(255,38,0,0.03) 30%,
+            rgba(255,220,215,0.06) 55%,
+            #ffffff 75%
+          )
+        `,
         padding: "120px 24px 80px",
       }}
     >
-      {/* Animated floating dot grid */}
+      {/* Full-hero animated dot grid */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
           pointerEvents: "none",
+          overflow: "hidden",
         }}
       >
-        <div style={{ position: "relative", width: "320px", height: "320px", opacity: 0.35 }}>
-          {DOT_POSITIONS.map((dot) => (
-            <motion.div
-              key={dot.id}
-              style={{
-                position: "absolute",
-                left: `${dot.x}%`,
-                top: `${dot.y}%`,
-                width: "5px",
-                height: "5px",
-                borderRadius: "50%",
-                backgroundColor: "#ff2600",
-                transform: "translate(-50%, -50%)",
-              }}
-              animate={{ y: [0, -8, 0], opacity: [0.4, 1, 0.4] }}
-              transition={{
-                duration: 2.8,
-                delay: dot.delay,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          ))}
-        </div>
+        {DOT_POSITIONS.map((dot) => (
+          <motion.div
+            key={dot.id}
+            style={{
+              position: "absolute",
+              left: `${dot.x}%`,
+              top: `${dot.y}%`,
+              width: "4px",
+              height: "4px",
+              borderRadius: "50%",
+              backgroundColor: "#ff2600",
+              transform: "translate(-50%, -50%)",
+            }}
+            animate={{ y: [0, -10, 0], opacity: [0.15, 0.45, 0.15] }}
+            transition={{
+              duration: 3.2,
+              delay: dot.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
       </div>
+
+      {/* Large faint spotlight ring behind headline */}
+      <div
+        style={{
+          position: "absolute",
+          width: "800px",
+          height: "800px",
+          borderRadius: "50%",
+          border: "1px solid rgba(255,38,0,0.07)",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -52%)",
+          pointerEvents: "none",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          width: "520px",
+          height: "520px",
+          borderRadius: "50%",
+          border: "1px solid rgba(255,38,0,0.05)",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -52%)",
+          pointerEvents: "none",
+        }}
+      />
 
       {/* Content */}
       <div style={{ position: "relative", zIndex: 1, maxWidth: "860px" }}>
