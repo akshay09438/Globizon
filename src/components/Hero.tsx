@@ -66,7 +66,7 @@ export default function Hero() {
               backgroundColor: "#ff2600",
               transform: "translate(-50%, -50%)",
             }}
-            animate={{ y: [0, -10, 0], opacity: [0.15, 0.45, 0.15] }}
+            animate={{ y: [0, -10, 0], opacity: [0.25, 0.65, 0.25] }}
             transition={{
               duration: 3.2,
               delay: dot.delay,
@@ -77,33 +77,67 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Large faint spotlight ring behind headline */}
+      {/* Spotlight rings — outer */}
       <div
         style={{
           position: "absolute",
-          width: "800px",
-          height: "800px",
+          width: "860px",
+          height: "860px",
           borderRadius: "50%",
-          border: "1px solid rgba(255,38,0,0.07)",
+          border: "1.5px solid rgba(255,38,0,0.18)",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -52%)",
           pointerEvents: "none",
         }}
       />
+      {/* Mid ring */}
       <div
         style={{
           position: "absolute",
-          width: "520px",
-          height: "520px",
+          width: "580px",
+          height: "580px",
           borderRadius: "50%",
-          border: "1px solid rgba(255,38,0,0.05)",
+          border: "1.5px solid rgba(255,38,0,0.12)",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -52%)",
           pointerEvents: "none",
         }}
       />
+      {/* Inner ring */}
+      <div
+        style={{
+          position: "absolute",
+          width: "340px",
+          height: "340px",
+          borderRadius: "50%",
+          border: "1px solid rgba(255,38,0,0.08)",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -52%)",
+          pointerEvents: "none",
+        }}
+      />
+      {/* Cross-hair accent lines */}
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -52%)",
+          width: "860px",
+          height: "860px",
+          pointerEvents: "none",
+        }}
+      >
+        {/* Horizontal tick marks at 3 & 9 o'clock */}
+        <div style={{ position: "absolute", top: "50%", left: "-24px", width: "20px", height: "1.5px", backgroundColor: "rgba(255,38,0,0.25)" }} />
+        <div style={{ position: "absolute", top: "50%", right: "-24px", width: "20px", height: "1.5px", backgroundColor: "rgba(255,38,0,0.25)" }} />
+        {/* Vertical tick marks at 12 & 6 o'clock */}
+        <div style={{ position: "absolute", left: "50%", top: "-24px", width: "1.5px", height: "20px", backgroundColor: "rgba(255,38,0,0.25)" }} />
+        <div style={{ position: "absolute", left: "50%", bottom: "-24px", width: "1.5px", height: "20px", backgroundColor: "rgba(255,38,0,0.25)" }} />
+      </div>
 
       {/* Content */}
       <div style={{ position: "relative", zIndex: 1, maxWidth: "860px" }}>
