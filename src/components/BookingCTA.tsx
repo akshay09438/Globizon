@@ -17,7 +17,7 @@ export default function BookingCTA() {
   return (
     <section
       id="booking"
-      style={{ backgroundColor: "#F8F9FA", padding: "96px 32px 80px" }}
+      style={{ backgroundColor: "#EDEDED", padding: "96px 32px 80px" }}
     >
       <div style={{ maxWidth: "900px", margin: "0 auto" }}>
         {/* Massive pulsing CTA pill — the dragonfruit signature */}

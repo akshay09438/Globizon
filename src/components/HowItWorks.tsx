@@ -28,7 +28,7 @@ export default function HowItWorks() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="process" style={{ backgroundColor: "#F8F9FA", padding: "96px 32px 112px" }}>
+    <section id="process" style={{ backgroundColor: "#EDEDED", padding: "96px 32px 112px" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
 
         <motion.div

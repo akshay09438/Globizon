@@ -18,7 +18,7 @@ export default function Testimonials() {
   return (
     <section
       style={{
-        backgroundColor: "#F8F9FA",
+        backgroundColor: "#EDEDED",
         padding: "112px 24px",
       }}
     >

@@ -35,7 +35,7 @@ export default function ValueProp() {
   return (
     <section
       style={{
-        backgroundColor: "#F8F9FA",
+        backgroundColor: "#EDEDED",
         padding: "160px 32px",
         textAlign: "center",
         position: "relative",
