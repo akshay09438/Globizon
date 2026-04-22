@@ -79,7 +79,7 @@ export default function Packages() {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))",
           gap: "20px",
-          alignItems: "start",
+          alignItems: "stretch",
         }}>
 
           {/* Prestige — white card */}
@@ -94,6 +94,8 @@ export default function Packages() {
               borderRadius: "28px",
               padding: "48px 40px",
               boxShadow: "0 4px 32px rgba(0,0,0,0.06)",
+              display: "flex",
+              flexDirection: "column",
             }}
           >
             <p style={{
@@ -125,7 +127,7 @@ export default function Packages() {
               </p>
             </div>
 
-            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 40px" }}>
+            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 40px", flex: 1 }}>
               {PRESTIGE_FEATURES.map((f) => (
                 <li key={f} style={{
                   display: "flex",
@@ -183,6 +185,8 @@ export default function Packages() {
               borderRadius: "28px",
               padding: "48px 40px",
               boxShadow: "0 12px 48px rgba(255,38,0,0.3)",
+              display: "flex",
+              flexDirection: "column",
             }}
           >
             <p style={{
@@ -214,7 +218,7 @@ export default function Packages() {
               </p>
             </div>
 
-            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 40px" }}>
+            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 40px", flex: 1 }}>
               {PINNACLE_FEATURES.map((f) => (
                 <li key={f} style={{
                   display: "flex",
