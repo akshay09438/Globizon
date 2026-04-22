@@ -8,53 +8,143 @@ export default function Packages() {
   };
 
   return (
-    <section className="bg-[#0d0d0d] px-6 py-24">
-      <div className="max-w-6xl mx-auto">
-        <span className="inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-[#00e5a0] bg-[#00e5a0]/10 px-2.5 py-1 mb-5">
+    <section
+      style={{
+        backgroundColor: "#ffffff",
+        padding: "120px 24px",
+      }}
+    >
+      <div style={{ maxWidth: "1152px", margin: "0 auto" }}>
+        <span
+          style={{
+            display: "inline-block",
+            fontSize: "10px",
+            fontWeight: 700,
+            letterSpacing: "0.25em",
+            textTransform: "uppercase",
+            color: "rgba(26,26,26,0.35)",
+            marginBottom: "24px",
+          }}
+        >
           Packages
         </span>
 
-        <h2 className="text-4xl md:text-5xl font-black text-white mb-3">
+        <h2
+          style={{
+            fontFamily: "DM Serif Display, Georgia, serif",
+            fontSize: "clamp(44px, 5vw, 72px)",
+            fontWeight: 400,
+            letterSpacing: "-0.5px",
+            lineHeight: 1.1,
+            color: "#1a1a1a",
+            marginBottom: "16px",
+          }}
+        >
           Pick Your Package.
         </h2>
-        <p className="text-[16px] text-white/45 mb-16 max-w-lg">
-          All packages include a free onboarding strategy call and monthly PR
-          documentation reports.
+        <p
+          style={{
+            fontSize: "clamp(16px, 1.2vw, 20px)",
+            color: "rgba(26,26,26,0.5)",
+            marginBottom: "64px",
+            maxWidth: "480px",
+            lineHeight: 1.6,
+          }}
+        >
+          All packages include a free onboarding strategy call and monthly
+          activity reports.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))",
+            gap: "24px",
+          }}
+        >
           {PACKAGES.map((pkg) => (
             <div
               key={pkg.tier}
-              className={`relative p-9 border ${
-                pkg.featured
-                  ? "bg-[#00e5a0]/[0.06] border-[#00e5a0]/30"
-                  : "bg-white/[0.03] border-white/[0.08]"
-              }`}
+              style={{
+                position: "relative",
+                backgroundColor: pkg.featured ? "#ff2600" : "#ffffff",
+                border: pkg.featured ? "none" : "1px solid #EAEAEA",
+                boxShadow: pkg.featured ? "none" : "0 4px 24px rgba(0,0,0,0.05)",
+                borderRadius: "28px",
+                padding: "52px 44px",
+              }}
             >
               {pkg.featured && (
-                <span className="absolute -top-3 left-7 bg-[#00e5a0] text-black text-[10px] font-black tracking-[0.15em] uppercase px-3 py-1">
+                <span
+                  style={{
+                    position: "absolute",
+                    top: "-14px",
+                    left: "28px",
+                    backgroundColor: "#ffffff",
+                    color: "#ff2600",
+                    fontSize: "10px",
+                    fontWeight: 800,
+                    letterSpacing: "0.15em",
+                    textTransform: "uppercase",
+                    borderRadius: "999px",
+                    padding: "4px 14px",
+                  }}
+                >
                   Most Popular
                 </span>
               )}
 
-              <p className="text-[11px] font-bold tracking-[0.25em] uppercase text-white/40 mb-3">
+              <p
+                style={{
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  color: pkg.featured ? "rgba(255,255,255,0.6)" : "rgba(26,26,26,0.4)",
+                  marginBottom: "14px",
+                }}
+              >
                 {pkg.tier}
               </p>
-              <h3 className="text-2xl font-black text-white mb-2">
+              <h3
+                style={{
+                  fontFamily: "DM Serif Display, Georgia, serif",
+                  fontSize: "36px",
+                  fontWeight: 400,
+                  color: pkg.featured ? "#ffffff" : "#1a1a1a",
+                  marginBottom: "14px",
+                  letterSpacing: "-0.5px",
+                }}
+              >
                 {pkg.name}
               </h3>
-              <p className="text-[13px] text-white/45 leading-relaxed mb-7 pb-7 border-b border-white/[0.06]">
+              <p
+                style={{
+                  fontSize: "15px",
+                  color: pkg.featured ? "rgba(255,255,255,0.65)" : "rgba(26,26,26,0.55)",
+                  lineHeight: 1.65,
+                  marginBottom: "28px",
+                  paddingBottom: "28px",
+                  borderBottom: pkg.featured ? "1px solid rgba(255,255,255,0.2)" : "1px solid rgba(26,26,26,0.08)",
+                }}
+              >
                 {pkg.description}
               </p>
 
-              <ul className="mb-8">
+              <ul style={{ marginBottom: "40px", listStyle: "none", padding: 0 }}>
                 {pkg.features.map((feature) => (
                   <li
                     key={feature}
-                    className="flex gap-2.5 text-[13px] text-white/60 py-2 border-b border-white/[0.04]"
+                    style={{
+                      display: "flex",
+                      gap: "12px",
+                      fontSize: "14px",
+                      color: pkg.featured ? "rgba(255,255,255,0.8)" : "rgba(26,26,26,0.65)",
+                      padding: "12px 0",
+                      borderBottom: pkg.featured ? "1px solid rgba(255,255,255,0.12)" : "1px solid rgba(26,26,26,0.06)",
+                    }}
                   >
-                    <span className="text-[#00e5a0] flex-shrink-0">→</span>
+                    <span style={{ flexShrink: 0 }}>→</span>
                     {feature}
                   </li>
                 ))}
@@ -62,11 +152,22 @@ export default function Packages() {
 
               <button
                 onClick={scrollToBooking}
-                className={`w-full text-[11px] font-bold tracking-[0.15em] uppercase py-3.5 transition-colors ${
-                  pkg.featured
-                    ? "bg-[#00e5a0] text-black hover:bg-[#00c98e]"
-                    : "border border-white/20 text-white hover:border-white/40"
-                }`}
+                style={{
+                  width: "100%",
+                  backgroundColor: pkg.featured ? "#ffffff" : "transparent",
+                  color: pkg.featured ? "#ff2600" : "rgba(26,26,26,0.7)",
+                  border: pkg.featured ? "none" : "1px solid rgba(26,26,26,0.2)",
+                  borderRadius: "999px",
+                  padding: "17px 0",
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  cursor: "pointer",
+                  transition: "opacity 0.2s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
               >
                 Book a Call
               </button>

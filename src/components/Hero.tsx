@@ -1,87 +1,224 @@
 "use client";
 
-import Image from "next/image";
+import { motion } from "framer-motion";
+
+const TRUST_LOGOS = [
+  "IRCC", "Start-Up Visa", "Express Entry", "PNP", "LMIA", "SUV Program", "RNIP", "BCPNP",
+];
+
+const DOT_POSITIONS = Array.from({ length: 16 }, (_, i) => ({
+  id: i,
+  x: (i % 4) * 33 + 17,
+  y: Math.floor(i / 4) * 33 + 17,
+  delay: i * 0.12,
+}));
 
 export default function Hero() {
   const scrollToBooking = () => {
     document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
   };
-
   const scrollToProcess = () => {
-    document
-      .getElementById("how-it-works")
-      ?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("process")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="bg-[#0d0d0d] px-6 pt-20 pb-16 min-h-[90vh] flex items-center">
-      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Left: copy */}
-        <div>
-          <p className="text-[11px] font-bold tracking-[0.3em] uppercase text-[#00e5a0] mb-6">
-            India → Canada Immigration Branding
-          </p>
-
-          <h1 className="text-5xl md:text-6xl font-black leading-[1.05] text-white mb-6">
-            Your Social Media Is
-            <br />
-            Your{" "}
-            <em className="not-italic text-[#00e5a0]">Visa Application.</em>
-          </h1>
-
-          <p className="text-lg text-white/55 leading-relaxed max-w-xl mb-10">
-            Immigration officers look you up online. We make sure what they
-            find builds your case — not breaks it. Globizon manages your
-            personal and business social presence so your PR file is
-            bulletproof.
-          </p>
-
-          <div className="flex flex-wrap items-center gap-4 mb-6">
-            <button
-              onClick={scrollToBooking}
-              className="bg-[#00e5a0] text-black text-[12px] font-black tracking-[0.15em] uppercase px-8 py-4 hover:bg-[#00c98e] transition-colors"
-            >
-              Book Your Free Strategy Call
-            </button>
-            <button
-              onClick={scrollToProcess}
-              className="text-white/50 text-[12px] font-semibold tracking-wide uppercase border-b border-white/20 pb-0.5 hover:text-white/80 transition-colors"
-            >
-              See How It Works
-            </button>
-          </div>
-
-          <p className="text-[12px] text-white/35 tracking-wide">
-            ⚡{" "}
-            <span className="text-red-400 font-bold">3 spots left</span> for
-            onboarding this month
-          </p>
-        </div>
-
-        {/* Right: image */}
-        <div className="relative hidden lg:block">
-          <div className="relative w-full aspect-[4/5] overflow-hidden">
-            <Image
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80"
-              alt="Professional Indian business owner"
-              fill
-              className="object-cover grayscale"
-              priority
+    <section
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        overflow: "hidden",
+        background: "#ffffff",
+        padding: "120px 24px 80px",
+      }}
+    >
+      {/* Animated floating dot grid */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          pointerEvents: "none",
+        }}
+      >
+        <div style={{ position: "relative", width: "320px", height: "320px", opacity: 0.35 }}>
+          {DOT_POSITIONS.map((dot) => (
+            <motion.div
+              key={dot.id}
+              style={{
+                position: "absolute",
+                left: `${dot.x}%`,
+                top: `${dot.y}%`,
+                width: "5px",
+                height: "5px",
+                borderRadius: "50%",
+                backgroundColor: "#ff2600",
+                transform: "translate(-50%, -50%)",
+              }}
+              animate={{ y: [0, -8, 0], opacity: [0.4, 1, 0.4] }}
+              transition={{
+                duration: 2.8,
+                delay: dot.delay,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             />
-            {/* Dark overlay for brand consistency */}
-            <div className="absolute inset-0 bg-[#0d0d0d]/40" />
-            {/* Accent border */}
-            <div className="absolute inset-0 border border-[#00e5a0]/20" />
-          </div>
-          {/* Floating stat card */}
-          <div className="absolute -bottom-6 -left-6 bg-[#111] border border-white/[0.08] px-6 py-5">
-            <div className="text-3xl font-black text-white">94%</div>
-            <div className="text-[11px] text-white/40 tracking-widest uppercase mt-1">
-              PR Approval Rate
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+
+      {/* Content */}
+      <div style={{ position: "relative", zIndex: 1, maxWidth: "860px" }}>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          style={{
+            fontSize: "11px",
+            fontWeight: 700,
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: "rgba(26,26,26,0.45)",
+            marginBottom: "28px",
+          }}
+        >
+          Your social media presence is important
+        </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            fontFamily: "'DM Serif Display', Georgia, serif",
+            fontSize: "clamp(48px, 9.5vw, 112px)",
+            fontWeight: 400,
+            lineHeight: 0.94,
+            letterSpacing: "-3px",
+            color: "#1a1a1a",
+            marginBottom: "28px",
+          }}
+        >
+          Build your profile
+          <br />
+          and become{" "}
+          <em style={{ fontStyle: "italic", color: "#ff2600" }}>
+            a global citizen.
+          </em>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.25 }}
+          style={{
+            fontSize: "17px",
+            color: "rgba(26,26,26,0.55)",
+            lineHeight: 1.65,
+            maxWidth: "480px",
+            margin: "0 auto 44px",
+          }}
+        >
+          Visa officers Google you. We make sure what they find builds your
+          case. We manage your full social presence so your business visa is
+          bulletproof.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}
+        >
+          <button
+            onClick={scrollToBooking}
+            style={{
+              backgroundColor: "#ff2600",
+              color: "#ffffff",
+              borderRadius: "999px",
+              padding: "16px 40px",
+              fontSize: "12px",
+              fontWeight: 800,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              border: "none",
+              cursor: "pointer",
+              transition: "opacity 0.2s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
+            Book a Demo
+          </button>
+          <button
+            onClick={scrollToProcess}
+            style={{
+              backgroundColor: "transparent",
+              color: "#1a1a1a",
+              borderRadius: "999px",
+              padding: "16px 40px",
+              fontSize: "12px",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              border: "1.5px solid rgba(26,26,26,0.3)",
+              cursor: "pointer",
+              transition: "border-color 0.2s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(26,26,26,0.7)")}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(26,26,26,0.3)")}
+          >
+            Watch Video
+          </button>
+        </motion.div>
+      </div>
+
+      {/* Trust marquee */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.7 }}
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          borderTop: "1px solid rgba(26,26,26,0.07)",
+          overflow: "hidden",
+          padding: "18px 0",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            width: "max-content",
+            animation: "marquee 22s linear infinite",
+          }}
+        >
+          {[...TRUST_LOGOS, ...TRUST_LOGOS].map((logo, i) => (
+            <span
+              key={i}
+              style={{
+                fontSize: "11px",
+                fontWeight: 700,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "rgba(26,26,26,0.3)",
+                padding: "0 44px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {logo}
+            </span>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }

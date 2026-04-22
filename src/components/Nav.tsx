@@ -1,23 +1,114 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
 export default function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const scrollToBooking = () => {
     document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-black/90 backdrop-blur-sm border-b border-white/[0.08]">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <span className="text-xl font-black tracking-[0.2em] uppercase text-white">
-          GLOBI<span className="text-[#00e5a0]">ZON</span>
-        </span>
-        <button
-          onClick={scrollToBooking}
-          className="bg-[#00e5a0] text-black text-[11px] font-black tracking-[0.15em] uppercase px-5 py-2.5 hover:bg-[#00c98e] transition-colors"
+    <nav
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 100,
+        padding: "18px 32px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        transition: "background 0.4s ease",
+        background: scrolled
+          ? "rgba(255,255,255,0.92)"
+          : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+      }}
+    >
+      {/* Logo */}
+      <span
+        style={{
+          fontFamily: "'DM Serif Display', Georgia, serif",
+          fontSize: "20px",
+          fontWeight: 400,
+          color: "#1a1a1a",
+          letterSpacing: "-0.3px",
+        }}
+      >
+        Globizon
+      </span>
+
+      {/* CTA pill */}
+      <button
+        onClick={scrollToBooking}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "10px",
+          backgroundColor: "#ff2600",
+          borderRadius: "999px",
+          padding: "10px 20px",
+          border: "none",
+          cursor: "pointer",
+          transition: "opacity 0.2s",
+        }}
+        onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+        onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+      >
+        {/* Pulsing dot */}
+        <div style={{ position: "relative", width: "8px", height: "8px", flexShrink: 0 }}>
+          <motion.div
+            animate={{ scale: [1, 2.2, 1], opacity: [0.8, 0, 0.8] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut" }}
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "50%",
+              backgroundColor: "#ffffff",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "50%",
+              backgroundColor: "#ffffff",
+            }}
+          />
+        </div>
+        <span
+          style={{
+            fontSize: "11px",
+            fontWeight: 800,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            color: "#ffffff",
+            whiteSpace: "nowrap",
+          }}
         >
-          Book Free Call
-        </button>
-      </div>
+          Reserve Your Spot
+        </span>
+        <span
+          style={{
+            fontSize: "10px",
+            fontWeight: 600,
+            color: "rgba(255,255,255,0.7)",
+            whiteSpace: "nowrap",
+          }}
+        >
+          — 3 slots left
+        </span>
+      </button>
     </nav>
   );
 }

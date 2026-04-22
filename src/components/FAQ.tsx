@@ -9,39 +9,95 @@ export default function FAQ() {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section className="bg-[#0d0d0d] px-6 py-24">
-      <div className="max-w-3xl mx-auto">
-        <span className="inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-[#00e5a0] bg-[#00e5a0]/10 px-2.5 py-1 mb-5">
+    <section
+      style={{
+        backgroundColor: "#ffffff",
+        padding: "96px 24px",
+      }}
+    >
+      <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+        <span
+          style={{
+            display: "inline-block",
+            fontSize: "10px",
+            fontWeight: 700,
+            letterSpacing: "0.25em",
+            textTransform: "uppercase",
+            color: "rgba(26,26,26,0.35)",
+            marginBottom: "24px",
+          }}
+        >
           FAQ
         </span>
 
-        <h2 className="text-4xl md:text-5xl font-black text-white mb-12">
+        <h2
+          style={{
+            fontFamily: "DM Serif Display, Georgia, serif",
+            fontSize: "clamp(36px, 5vw, 52px)",
+            fontWeight: 400,
+            letterSpacing: "-1.5px",
+            lineHeight: 1.05,
+            color: "#1a1a1a",
+            marginBottom: "48px",
+          }}
+        >
           Common Questions.
         </h2>
 
         <div>
           {FAQS.map((faq, i) => (
-            <div key={faq.q} className="border-b border-white/[0.07]">
+            <div
+              key={faq.q}
+              style={{ borderBottom: "1px solid rgba(26,26,26,0.08)" }}
+            >
               <button
                 onClick={() => toggle(i)}
-                className="w-full flex items-center justify-between py-6 text-left"
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  padding: "24px 0",
+                  textAlign: "left",
+                  backgroundColor: "transparent",
+                  border: "none",
+                  cursor: "pointer",
+                  gap: "16px",
+                }}
               >
-                <span className="text-[15px] font-bold text-white pr-4">
+                <span
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 600,
+                    color: "#1a1a1a",
+                    letterSpacing: "-0.2px",
+                    lineHeight: 1.4,
+                  }}
+                >
                   {faq.q}
                 </span>
                 <span
-                  className="text-[#00e5a0] text-xl flex-shrink-0 transition-transform duration-200"
                   style={{
-                    transform:
-                      openIndex === i ? "rotate(45deg)" : "rotate(0deg)",
+                    color: "#ff2600",
+                    fontSize: "22px",
+                    flexShrink: 0,
+                    transition: "transform 0.2s",
+                    transform: openIndex === i ? "rotate(45deg)" : "rotate(0deg)",
+                    display: "inline-block",
+                    lineHeight: 1,
                   }}
                 >
                   +
                 </span>
               </button>
               <div
-                style={{ display: openIndex === i ? "block" : "none" }}
-                className="pb-6 text-[14px] text-white/45 leading-relaxed"
+                style={{
+                  display: openIndex === i ? "block" : "none",
+                  paddingBottom: "24px",
+                  fontSize: "14px",
+                  color: "rgba(26,26,26,0.55)",
+                  lineHeight: 1.7,
+                }}
               >
                 {faq.a}
               </div>

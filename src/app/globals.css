@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-accent: #00e5a0;
-  --color-accent-hover: #00c98e;
+  --font-display: "DM Serif Display", "Georgia", serif;
+  --font-sans: "Archivo Variable", "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --color-dark: #1a1a1a;
+  --color-mint: #e8f1e8;
+  --color-red: #ff2600;
 }
 
 * {
@@ -12,4 +14,32 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+
+/* Pill button base */
+.pill {
+  border-radius: 999px;
+}
+
+/* Infinite marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Hide default cursor globally */
+*, *::before, *::after {
+  cursor: none !important;
 }

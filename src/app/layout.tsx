@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import "@fontsource-variable/inter";
+import "@fontsource/dm-serif-display";
+import "@fontsource/dm-serif-display/400-italic.css";
+import "@fontsource-variable/archivo";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Globizon — Immigration Branding for India → Canada",
+  title: "Globizon — Business Visa Branding",
   description:
-    "We manage your personal and business social media so your Canada PR file is bulletproof. Book a free strategy call.",
+    "We manage your social media presence so your business visa application is bulletproof. Book a free strategy call.",
+  metadataBase: new URL("https://globizon.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
@@ -14,8 +20,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-full bg-[#0d0d0d] text-white">{children}</body>
+    <html lang="en" className="h-full">
+      <body
+        className="min-h-full antialiased"
+        style={{
+          fontFamily: "'Archivo Variable', 'Archivo', sans-serif",
+          backgroundColor: "#ffffff",
+          color: "#1a1a1a",
+        }}
+      >
+        {children}
+      </body>
     </html>
   );
 }

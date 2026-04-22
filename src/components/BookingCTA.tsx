@@ -1,10 +1,11 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 export default function BookingCTA() {
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -16,65 +17,186 @@ export default function BookingCTA() {
   return (
     <section
       id="booking"
-      className="bg-[#0d0d0d] border-t border-white/[0.06] px-6 py-28 flex flex-col items-center text-center"
+      style={{ backgroundColor: "#F8F9FA", padding: "96px 32px 80px" }}
     >
-      <span className="inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-[#00e5a0] bg-[#00e5a0]/10 px-2.5 py-1 mb-6">
-        Get Started
-      </span>
-
-      <h2 className="text-4xl md:text-6xl font-black leading-[1.1] text-white mb-5 max-w-2xl">
-        Ready to Build the Brand
-        <br />
-        That Gets You to{" "}
-        <em className="not-italic text-[#00e5a0]">Canada?</em>
-      </h2>
-
-      <p className="text-[17px] text-white/45 leading-relaxed max-w-md mb-10">
-        Book a free 30-minute strategy call. We'll review your current online
-        presence, identify the gaps, and tell you exactly what it'll take to
-        strengthen your PR file.
-      </p>
-
-      {submitted ? (
-        <div className="bg-[#00e5a0]/10 border border-[#00e5a0]/30 px-8 py-6 max-w-md w-full">
-          <p className="text-[#00e5a0] font-bold text-lg mb-1">
-            You're on the list!
-          </p>
-          <p className="text-white/55 text-[14px]">
-            We'll be in touch within 24 hours to confirm your call.
-          </p>
-        </div>
-      ) : (
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col sm:flex-row gap-3 max-w-xl w-full mb-4"
+      <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+        {/* Massive pulsing CTA pill — the dragonfruit signature */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          style={{ marginBottom: "56px" }}
         >
-          <input
-            type="text"
-            placeholder="Your name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="flex-1 bg-white/[0.06] border border-white/[0.12] text-white placeholder-white/30 px-5 py-3.5 text-[14px] outline-none focus:border-[#00e5a0]/50 transition-colors"
-          />
-          <input
-            type="email"
-            placeholder="Email address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="flex-[1.2] bg-white/[0.06] border border-white/[0.12] text-white placeholder-white/30 px-5 py-3.5 text-[14px] outline-none focus:border-[#00e5a0]/50 transition-colors"
-          />
-          <button
-            type="submit"
-            className="bg-[#00e5a0] text-black text-[11px] font-black tracking-[0.15em] uppercase px-7 py-3.5 hover:bg-[#00c98e] transition-colors whitespace-nowrap"
+          <motion.div
+            animate={{ boxShadow: ["0 0 0 0 rgba(255,38,0,0.4)", "0 0 0 20px rgba(255,38,0,0)", "0 0 0 0 rgba(255,38,0,0)"] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            style={{ borderRadius: "999px" }}
           >
-            Book Free Call
-          </button>
-        </form>
-      )}
+            <a
+              href="#booking"
+              onClick={(e) => e.preventDefault()}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "20px",
+                background: `radial-gradient(ellipse 55% 60% at 20% 40%, rgba(255,100,50,0.45) 0%, transparent 55%), radial-gradient(ellipse 40% 50% at 80% 70%, rgba(120,0,0,0.5) 0%, transparent 50%), #ff2600`,
+                borderRadius: "999px",
+                padding: "20px 20px 20px 24px",
+                textDecoration: "none",
+                transition: "opacity 0.2s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.9")}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            >
+              {/* Logo mark */}
+              <div
+                style={{
+                  width: "56px",
+                  height: "56px",
+                  borderRadius: "50%",
+                  backgroundColor: "#1a1a1a",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "'DM Serif Display', Georgia, serif",
+                    fontSize: "22px",
+                    color: "#ffffff",
+                    fontWeight: 400,
+                  }}
+                >
+                  G
+                </span>
+              </div>
+              <span
+                style={{
+                  fontSize: "clamp(18px, 3.5vw, 32px)",
+                  fontWeight: 900,
+                  color: "#ffffff",
+                  letterSpacing: "-0.5px",
+                  textTransform: "uppercase",
+                  flex: 1,
+                }}
+              >
+                Book a Free Call Now
+              </span>
+              {/* Arrow */}
+              <div
+                style={{
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "50%",
+                  backgroundColor: "rgba(255,255,255,0.15)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
+              >
+                <span style={{ fontSize: "18px", color: "#ffffff" }}>→</span>
+              </div>
+            </a>
+          </motion.div>
+        </motion.div>
 
-      <p className="text-[12px] text-white/25 tracking-wide">
-        No commitment. No fees. Just clarity on your next step.
-      </p>
+        {/* Divider */}
+        <div style={{ borderTop: "1px solid rgba(26,26,26,0.12)", marginBottom: "48px" }} />
+
+        {/* Email form */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "24px" }}
+        >
+          <div>
+            <p
+              style={{
+                fontFamily: "'DM Serif Display', Georgia, serif",
+                fontSize: "22px",
+                fontWeight: 400,
+                color: "#1a1a1a",
+                letterSpacing: "-0.5px",
+                marginBottom: "4px",
+              }}
+            >
+              {submitted ? "You're in. We'll reach out within 24hrs." : "Sign up for the Globizon newsletter"}
+            </p>
+            {!submitted && (
+              <p style={{ fontSize: "13px", color: "rgba(26,26,26,0.45)" }}>
+                Business visa branding insights for entrepreneurs
+              </p>
+            )}
+          </div>
+
+          {!submitted && (
+            <form
+              onSubmit={handleSubmit}
+              style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}
+            >
+              <input
+                type="text"
+                placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                style={{
+                  backgroundColor: "#ffffff",
+                  border: "1px solid rgba(26,26,26,0.15)",
+                  borderRadius: "999px",
+                  padding: "12px 20px",
+                  fontSize: "14px",
+                  color: "#1a1a1a",
+                  outline: "none",
+                  minWidth: "130px",
+                }}
+              />
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={{
+                  backgroundColor: "#ffffff",
+                  border: "1px solid rgba(26,26,26,0.15)",
+                  borderRadius: "999px",
+                  padding: "12px 20px",
+                  fontSize: "14px",
+                  color: "#1a1a1a",
+                  outline: "none",
+                  minWidth: "200px",
+                }}
+              />
+              <button
+                type="submit"
+                style={{
+                  backgroundColor: "#1a1a1a",
+                  color: "#ffffff",
+                  borderRadius: "999px",
+                  padding: "12px 24px",
+                  fontSize: "12px",
+                  fontWeight: 800,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  border: "none",
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                  transition: "opacity 0.2s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.75")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+              >
+                Receive Guide
+              </button>
+            </form>
+          )}
+        </motion.div>
+      </div>
     </section>
   );
 }
