@@ -5,57 +5,23 @@ export const STATS = [
   { num: "12mo", label: "Avg. Brand Build Time" },
 ];
 
-export interface Package {
-  tier: string;
-  name: string;
-  description: string;
-  features: string[];
-  featured?: boolean;
+export interface PackageRow {
+  feature: string;
+  prestige: string;
+  pinnacle: string;
 }
 
-export const PACKAGES: Package[] = [
-  {
-    tier: "Basic",
-    name: "Personal Brand",
-    description:
-      "For the individual applicant who needs to establish a credible personal presence online before applying.",
-    features: [
-      "LinkedIn profile build & management",
-      "Instagram setup & management",
-      "8 posts/month (personal)",
-      "Monthly activity report",
-      "Bi-weekly check-in call",
-    ],
-  },
-  {
-    tier: "Standard",
-    name: "Personal + Business",
-    description:
-      "For business owners who need both their personal profile and business pages to reflect well on their visa application.",
-    features: [
-      "Everything in Basic",
-      "Business LinkedIn + Instagram page",
-      "16 posts/month (personal + business)",
-      "Business profile optimisation",
-      "Monthly activity report (both profiles)",
-      "Weekly strategy call",
-    ],
-    featured: true,
-  },
-  {
-    tier: "Premium",
-    name: "Full Visa Suite",
-    description:
-      "Full-service brand management with documentation support. For applicants who want nothing left to chance.",
-    features: [
-      "Everything in Standard",
-      "Facebook business page management",
-      "24 posts/month across all platforms",
-      "Press release & media coverage support",
-      "Visa documentation kit (letters, reports)",
-      "Priority support + dedicated manager",
-    ],
-  },
+export const PACKAGE_ROWS: PackageRow[] = [
+  { feature: "Website",           prestige: "✓ Included",                        pinnacle: "✓ Included" },
+  { feature: "Annual Maintenance", prestige: "₹24,000",                          pinnacle: "₹24,000" },
+  { feature: "Branding & USP",    prestige: "Full brand messaging + content",     pinnacle: "Complete brand identity system" },
+  { feature: "LinkedIn",          prestige: "✗",                                  pinnacle: "✓ Personal + Business page" },
+  { feature: "Instagram",         prestige: "✓ Managed + posts",                 pinnacle: "✓ Managed + posts" },
+  { feature: "Posts per Year",    prestige: "108 static (12→24→36→36)",          pinnacle: "108 static + 12 videos (1/month)" },
+  { feature: "Posting Platforms", prestige: "Instagram only",                     pinnacle: "Instagram + LinkedIn" },
+  { feature: "Blogs",             prestige: "✗",                                  pinnacle: "✓ 4 blogs/year" },
+  { feature: "Company Video",     prestige: "✓ 1 brand video",                   pinnacle: "✓ 1 brand video + 2 reels/month" },
+  { feature: "Strategy Calls",    prestige: "Monthly",                            pinnacle: "Monthly + dedicated manager" },
 ];
 
 export interface Testimonial {
