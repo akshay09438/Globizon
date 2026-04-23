@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const PRESTIGE_FEATURES = [
   "Website included",
-  "Annual maintenance: ₹24,000",
+  "1 year maintenance included",
   "Full brand messaging + content",
   "Instagram managed + posts",
   "108 static posts/year",
@@ -13,15 +13,13 @@ const PRESTIGE_FEATURES = [
 ];
 
 const PINNACLE_FEATURES = [
-  "Website included",
-  "Annual maintenance: ₹24,000",
+  "Everything in Prestige, plus:",
   "Complete brand identity system",
-  "LinkedIn Personal + Business page",
-  "Instagram + LinkedIn managed",
-  "108 static posts + 12 videos/year",
+  "LinkedIn Personal + Business page managed",
+  "12 videos/year",
+  "2 reels/month",
   "4 blogs/year",
-  "1 brand video + 2 reels/month",
-  "Monthly calls + dedicated manager",
+  "Dedicated manager",
 ];
 
 function CheckIcon({ light }: { light?: boolean }) {
@@ -214,7 +212,7 @@ export default function Packages() {
                 <span style={{ fontSize: "16px", fontWeight: 400, color: "rgba(255,255,255,0.5)", letterSpacing: "0px" }}>/yr</span>
               </p>
               <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)", lineHeight: 1.5 }}>
-                Full-suite branding across Instagram and LinkedIn with video, blogs, and a dedicated manager.
+                Everything in Prestige, plus a video add-on for brands that want more content velocity.
               </p>
             </div>
 

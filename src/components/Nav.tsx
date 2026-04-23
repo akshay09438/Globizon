@@ -96,7 +96,7 @@ export default function Nav() {
             whiteSpace: "nowrap",
           }}
         >
-          Reserve Your Spot
+          Book a Call With Us
         </span>
         <span
           style={{
