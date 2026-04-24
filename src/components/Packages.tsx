@@ -6,7 +6,7 @@ const PRESTIGE_FEATURES = [
   "Website included",
   "1 year maintenance included",
   "Full brand messaging + content",
-  "Instagram managed + posts",
+  "Managed posting on all social media platforms",
   "108 static posts/year",
   "1 brand video",
   "Monthly strategy calls",
@@ -14,10 +14,8 @@ const PRESTIGE_FEATURES = [
 
 const PINNACLE_FEATURES = [
   "Everything in Prestige, plus:",
-  "Complete brand identity system",
-  "LinkedIn Personal + Business page managed",
+  "LinkedIn profile optimization",
   "12 videos/year",
-  "2 reels/month",
   "4 blogs/year",
   "Dedicated manager",
 ];
@@ -109,6 +107,14 @@ export default function Packages() {
 
             <div style={{ marginBottom: "32px", paddingBottom: "32px", borderBottom: "1px solid rgba(26,26,26,0.07)" }}>
               <p style={{
+                fontSize: "14px",
+                color: "rgba(26,26,26,0.4)",
+                textDecoration: "line-through",
+                marginBottom: "4px",
+              }}>
+                ₹3,00,000/yr
+              </p>
+              <p style={{
                 fontFamily: "DM Serif Display, Georgia, serif",
                 fontSize: "48px",
                 fontWeight: 400,
@@ -121,7 +127,7 @@ export default function Packages() {
                 <span style={{ fontSize: "16px", fontWeight: 400, color: "rgba(26,26,26,0.4)", letterSpacing: "0px" }}>/yr</span>
               </p>
               <p style={{ fontSize: "14px", color: "rgba(26,26,26,0.5)", lineHeight: 1.5 }}>
-                For businesses establishing a strong Instagram presence and brand narrative.
+                For businesses establishing a strong business profile on the internet.
               </p>
             </div>
 

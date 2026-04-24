@@ -220,27 +220,7 @@ export default function Hero() {
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
-            Book a Demo
-          </button>
-          <button
-            onClick={scrollToProcess}
-            style={{
-              backgroundColor: "transparent",
-              color: "#1a1a1a",
-              borderRadius: "999px",
-              padding: "16px 40px",
-              fontSize: "12px",
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              border: "1.5px solid rgba(26,26,26,0.3)",
-              cursor: "pointer",
-              transition: "border-color 0.2s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(26,26,26,0.7)")}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(26,26,26,0.3)")}
-          >
-            Watch Video
+            Book a Call
           </button>
         </motion.div>
       </div>

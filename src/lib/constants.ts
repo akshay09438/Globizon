@@ -35,7 +35,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote:
       '"Our visa consultant told us our LinkedIn and Instagram were among the strongest she\'d seen in a business visa file. Globizon built that from scratch in 6 months."',
     author: "Rajesh M.",
-    meta: "E-commerce business owner · Business visa approved, Ontario",
+    meta: "Gym owner · Business visa approved, Ontario",
   },
   {
     quote:

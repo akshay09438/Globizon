@@ -135,7 +135,7 @@ export default function MidCTA() {
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
-            Book a Demo
+            Book a Call
           </button>
           <button
             onClick={scrollToProcess}
