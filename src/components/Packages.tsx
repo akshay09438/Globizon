@@ -17,7 +17,7 @@ const PINNACLE_FEATURES = [
   "LinkedIn profile optimization",
   "12 videos/year",
   "4 blogs/year",
-  "Dedicated manager",
+  "Dedicated account manager",
 ];
 
 function CheckIcon({ light }: { light?: boolean }) {
