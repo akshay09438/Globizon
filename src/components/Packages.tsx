@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 const PRESTIGE_FEATURES = [
   "Website included",
   "1 year maintenance included",
-  "Full brand messaging + content",
-  "Managed posting on all social media platforms",
+  "Your brand story, captions & posts — all written for you",
+  "Managed posting across all social media platforms",
   "108 static posts/year",
   "1 brand video",
   "Monthly strategy calls",
