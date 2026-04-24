@@ -14,7 +14,7 @@ const PRESTIGE_FEATURES = [
 
 const PINNACLE_FEATURES = [
   "Everything in Prestige, plus:",
-  "LinkedIn profile optimization",
+  "LinkedIn personal profile optimization",
   "12 videos/year",
   "4 blogs/year",
   "Dedicated account manager",
